@@ -14,6 +14,9 @@ class MyStack extends TerraformStack {
     const ec2Instance = new Instance(this, "compute", {
       ami: "ami-0d48337b7d3c86f62", // Amazon Linux 2023
       instanceType: "t2.micro",
+      tags: {
+        Name: "CDKTF-Demo",
+      },
     });
 
     new TerraformOutput(this, "public_ip", {
